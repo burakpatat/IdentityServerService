@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = IdentityServerService.Application
+build_property.ProjectDir = C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

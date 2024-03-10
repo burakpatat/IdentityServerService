@@ -1,0 +1,9 @@
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\bin\Debug\netcoreapp3.1\IdentityServerService.Shared.deps.json
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\bin\Debug\netcoreapp3.1\IdentityServerService.Shared.dll
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\bin\Debug\netcoreapp3.1\IdentityServerService.Shared.pdb
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\obj\Debug\netcoreapp3.1\IdentityServerService.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\obj\Debug\netcoreapp3.1\IdentityServerService.Shared.AssemblyInfoInputs.cache
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\obj\Debug\netcoreapp3.1\IdentityServerService.Shared.AssemblyInfo.cs
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\obj\Debug\netcoreapp3.1\IdentityServerService.Shared.csproj.CoreCompileInputs.cache
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\obj\Debug\netcoreapp3.1\IdentityServerService.Shared.dll
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Shared\obj\Debug\netcoreapp3.1\IdentityServerService.Shared.pdb

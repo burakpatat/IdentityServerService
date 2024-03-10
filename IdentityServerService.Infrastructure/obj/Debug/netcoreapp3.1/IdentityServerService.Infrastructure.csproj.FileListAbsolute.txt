@@ -1,0 +1,16 @@
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.deps.json
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.runtimeconfig.json
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.runtimeconfig.dev.json
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.dll
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.pdb
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Application.dll
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\bin\Debug\netcoreapp3.1\IdentityServerService.Application.pdb
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.AssemblyInfo.cs
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.csproj.CopyComplete
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.dll
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.pdb
+C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\IdentityServerService.Infrastructure\obj\Debug\netcoreapp3.1\IdentityServerService.Infrastructure.genruntimeconfig.cache
