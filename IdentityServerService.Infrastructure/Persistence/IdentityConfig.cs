@@ -1,7 +1,10 @@
 ﻿using IdentityServer4.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static IdentityModel.OidcConstants;
+using GrantTypes = IdentityServer4.Models.GrantTypes;
 
 namespace IdentityServerService.Infrastructure.Persistence
 {
@@ -14,22 +17,13 @@ namespace IdentityServerService.Infrastructure.Persistence
                 new IdentityResources.Profile(),
                 new IdentityResource
                 {
-                    Name = "openid",
-                    DisplayName = "Open ID",
-                    Required = true,
-                    UserClaims = new List<string> { "sub" }
-                },
-                new IdentityResource
-                {
-                    Name = "profile",
-                    DisplayName = "User Profile",
-                    Emphasize = true,
-                    UserClaims = new List<string> { "name", "family_name", "given_name", "middle_name", "preferred_username", "profile", "picture", "website", "gender", "birthdate", "zoneinfo", "locale", "updated_at", "role" }
+                    Name = "role",
+                    UserClaims = new List<string> { "role" }
                 }
            };
 
         public static IEnumerable<ApiScope> ApiScopes =>
-            new[] { new ApiScope("API.read"), new ApiScope("API.write"), };
+            new[] { new ApiScope("API.read"), new ApiScope("API.write"), new ApiScope("offline_access") };
         public static IEnumerable<ApiResource> ApiResources =>
             new[]
             {
@@ -37,9 +31,9 @@ namespace IdentityServerService.Infrastructure.Persistence
                 {
                     Name = "portal-resource",
                     DisplayName = "Portal API Resource",
-                    Scopes = new List<string> { "API.read", "API.write" },
+                    Scopes = new List<string> { "API.read", "API.write", "offline_access" },
                     ApiSecrets = new List<Secret> { new Secret("ScopeSecret".Sha256()) },
-                    UserClaims = new List<string> { "id", "name", "email", "role" }
+                    UserClaims = new List<string> { "id", "name", "email", "role" },
                 }
             };
 
@@ -50,14 +44,16 @@ namespace IdentityServerService.Infrastructure.Persistence
                 {
                     ClientId = "portal.client",
                     ClientName = "Portal Client Credentials Client",
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("ClientSecret1".Sha256()) },
-                    AllowedScopes = { "API.read", "API.write", "offline_access" },
+                    AllowedScopes = { "API.read", "API.write", StandardScopes.OpenId },
                     AllowOfflineAccess = true,
                     AccessTokenLifetime = 3600,
                     RefreshTokenUsage = TokenUsage.OneTimeOnly,
                     RequireConsent= false,
-                    RequireClientSecret = true
+                    RequireClientSecret = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    Enabled = true
                 }
             };
     }
