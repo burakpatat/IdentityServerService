@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -18,13 +20,15 @@ namespace IdentityServerService.Server.Controller
     public class AccountController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly IConfiguration _configuration;
         //private readonly IEmailService _emailService;
 
-        public AccountController(UserManager<AppUser> userManager, IConfiguration configuration)
+        public AccountController(UserManager<AppUser> userManager, IConfiguration configuration, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _configuration = configuration;
+            _signInManager = signInManager;
         }
 
         [HttpPost("register")]
@@ -60,6 +64,28 @@ namespace IdentityServerService.Server.Controller
 
             return Ok(new RegisterResponse { Successful = true });
 
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginRequest model, string scope)
+        {
+            var result = await _signInManager.PasswordSignInAsync(model.Email!, model.Password!, false, false);
+
+            if (!result.Succeeded) return BadRequest(new LoginResponse { Successful = false, Error = "Username and password are invalid." });
+
+            var user = await _signInManager.UserManager.FindByEmailAsync(model.Email!);
+            var roles = await _signInManager.UserManager.GetRolesAsync(user!);
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, model.Email!)
+            };
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            return Ok(new LoginResponse { Successful = true });
         }
     }
 }

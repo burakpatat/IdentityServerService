@@ -1,6 +1,7 @@
 ﻿using IdentityServer4.Services;
 using IdentityServerService.Infrastructure.Persistence;
 using IdentityServerService.Infrastructure.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,15 +30,17 @@ namespace IdentityServerService.Infrastructure.Extensions
               .AddDefaultTokenProviders();
 
             services.AddIdentityServer()
-                    .AddDeveloperSigningCredential()
+                    .AddDeveloperSigningCredential()// - product da değişecek 
                     .AddOperationalStore(options =>
                     {
-                        options.ConfigureDbContext = builder => builder.UseSqlServer(configuration.GetConnectionString("IdentitySSConnection"));
+                        options.ConfigureDbContext = builder => builder.UseSqlServer(configuration.GetConnectionString("IdentitySSConnection"),
+                            sql => sql.MigrationsAssembly(typeof(SeedData).Assembly.FullName));
                         options.EnableTokenCleanup = true;
                     })
                      .AddConfigurationStore(options =>
                      {
-                         options.ConfigureDbContext = builder => builder.UseSqlServer(configuration.GetConnectionString("IdentitySSConnection"));
+                         options.ConfigureDbContext = builder => builder.UseSqlServer(configuration.GetConnectionString("IdentitySSConnection"),
+                             sql => sql.MigrationsAssembly(typeof(SeedData).Assembly.FullName));
                      })
                     .AddAspNetIdentity<AppUser>();
             return services;
@@ -51,7 +54,7 @@ namespace IdentityServerService.Infrastructure.Extensions
         }
         public static IServiceCollection AddServices<TUser>(this IServiceCollection services) where TUser : IdentityUser<int>, new()
         {
-            services.AddTransient<IProfileService, IdentityClaimsProfileService>();
+            //services.AddTransient<IProfileService, IdentityClaimsProfileService>();
             return services;
         }
     }

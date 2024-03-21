@@ -3,6 +3,9 @@ using IdentityServerService.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +13,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace IdentityServerService
@@ -26,13 +30,23 @@ namespace IdentityServerService
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var assembly = typeof(Program).Assembly.GetName().Name;
+
             services.AddDatabaseConfiguration(Configuration.GetConnectionString("IdentitySSConnection"))
                .AddIdentityServerConfig(Configuration)
                .AddServices<AppUser>();
 
+            //services.AddIdentityServer()
+            //    .AddInMemoryApiResources(IdentityConfig.ApiResources)
+            //    .AddInMemoryApiScopes(IdentityConfig.ApiScopes)
+            //    .AddInMemoryClients(IdentityConfig.Clients)
+            //    .AddInMemoryIdentityResources(IdentityConfig.IdentityResources)
+            //    .AddDeveloperSigningCredential();
+
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader()));
+              .WithOrigins("http://localhost:4200")
+                .AllowAnyHeader()
+                .AllowAnyMethod()));
 
             services.AddSwaggerGen(c =>
             {
@@ -48,7 +62,12 @@ namespace IdentityServerService
                     }
                 });
             });
-            services.AddControllers();
+            services.AddControllersWithViews();
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+            }).SetCompatibilityVersion(CompatibilityVersion.Latest);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,14 +78,21 @@ namespace IdentityServerService
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+
             app.UseRouting();
+            app.UseStaticFiles();
 
             app.UseCors("AllowAll");
             app.UseIdentityServer();
+            app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllers();
+                routes.MapRoute(
+                     name: "default",
+                     template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseSwagger();

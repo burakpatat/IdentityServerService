@@ -1,7 +1,9 @@
-﻿using IdentityServer4.EntityFramework.Mappers;
+﻿using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.EntityFramework.Storage;
 using IdentityServer4.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,12 +16,12 @@ namespace IdentityServerService.Infrastructure.Persistence
     {
         public static void EnsureSeedData(IServiceProvider provider)
         {
-            var configuration = provider.GetRequiredService<IConfiguration>();
             provider.GetRequiredService<AppIdentityDbContext>().Database.Migrate();
             provider.GetRequiredService<AppPersistedGrantDbContext>().Database.Migrate();
             provider.GetRequiredService<AppConfigurationDbContext>().Database.Migrate();
 
             var context = provider.GetRequiredService<AppConfigurationDbContext>();
+
             if (!context.Clients.Any())
             {
                 foreach (var client in IdentityConfig.Clients.ToList())
@@ -55,6 +57,8 @@ namespace IdentityServerService.Infrastructure.Persistence
                 }
                 context.SaveChanges();
             }
+
+            
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using IdentityServer4.Models;
+using IdentityServer4.Test;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
-using static IdentityModel.OidcConstants;
+using static IdentityServer4.IdentityServerConstants;
 using GrantTypes = IdentityServer4.Models.GrantTypes;
 
 namespace IdentityServerService.Infrastructure.Persistence
@@ -11,27 +13,22 @@ namespace IdentityServerService.Infrastructure.Persistence
     public class IdentityConfig
     {
         public static IEnumerable<IdentityResource> IdentityResources =>
-           new[]
+           new List<IdentityResource>
            {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
-                new IdentityResource
-                {
-                    Name = "role",
-                    UserClaims = new List<string> { "role" }
-                }
+                new IdentityResources.Profile()
            };
 
         public static IEnumerable<ApiScope> ApiScopes =>
-            new[] { new ApiScope("API.read"), new ApiScope("API.write"), new ApiScope("offline_access") };
+            new[] { new ApiScope("API.read"), new ApiScope("API.write") };
         public static IEnumerable<ApiResource> ApiResources =>
             new[]
             {
-                new ApiResource("API")
+                new ApiResource("portal-resource")
                 {
                     Name = "portal-resource",
                     DisplayName = "Portal API Resource",
-                    Scopes = new List<string> { "API.read", "API.write", "offline_access" },
+                    Scopes = new List<string> { "API.read", "API.write" },
                     ApiSecrets = new List<Secret> { new Secret("ScopeSecret".Sha256()) },
                     UserClaims = new List<string> { "id", "name", "email", "role" },
                 }
@@ -54,6 +51,21 @@ namespace IdentityServerService.Infrastructure.Persistence
                     RequireClientSecret = true,
                     AlwaysIncludeUserClaimsInIdToken = true,
                     Enabled = true
+                },
+                new Client
+                {
+                    ClientId = "angular-client",
+                    ClientName = "Angular Client Web",
+                    RequireClientSecret = false,
+                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedScopes = { "API.read", "API.write", StandardScopes.OpenId, StandardScopes.Profile },
+                    RedirectUris =
+                    {
+                        "http://localhost:4200/callback"
+
+                    },
+                    AllowedCorsOrigins = { "http://localhost:4200" },
+                    PostLogoutRedirectUris = { "http://localhost:4200" }
                 }
             };
     }
