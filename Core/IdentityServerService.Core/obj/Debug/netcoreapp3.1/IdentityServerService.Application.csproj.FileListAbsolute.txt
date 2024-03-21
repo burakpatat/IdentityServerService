@@ -1,9 +1,0 @@
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\bin\Debug\netcoreapp3.1\IdentityServerService.Application.deps.json
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\bin\Debug\netcoreapp3.1\IdentityServerService.Application.dll
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\bin\Debug\netcoreapp3.1\IdentityServerService.Application.pdb
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\obj\Debug\netcoreapp3.1\IdentityServerService.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\obj\Debug\netcoreapp3.1\IdentityServerService.Application.AssemblyInfoInputs.cache
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\obj\Debug\netcoreapp3.1\IdentityServerService.Application.AssemblyInfo.cs
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\obj\Debug\netcoreapp3.1\IdentityServerService.Application.csproj.CoreCompileInputs.cache
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\obj\Debug\netcoreapp3.1\IdentityServerService.Application.dll
-C:\Users\burak\OneDrive\Masaüstü\AssaProjects\IdentityServerService\Core\IdentityServerService.Core\obj\Debug\netcoreapp3.1\IdentityServerService.Application.pdb
