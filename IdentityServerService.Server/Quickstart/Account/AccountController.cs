@@ -222,6 +222,7 @@ namespace IdentityServerHost.Quickstart.UI
                 // delete local authentication cookie
                 await HttpContext.SignOutAsync();
                 await HttpContext.SignOutAsync(IdentityServerConstants.DefaultCookieAuthenticationScheme);
+                await _signInManager.SignOutAsync();
 
                 Response.Cookies.Delete(".AspNetCore.Identity.Application");
                 Response.Cookies.Delete("idserv.external");

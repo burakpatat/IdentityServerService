@@ -16,7 +16,13 @@ namespace IdentityServerService.Infrastructure.Persistence
            new List<IdentityResource>
            {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResource()
+                {
+                    Name  = "Roles",
+                    DisplayName = "Roles",
+                    UserClaims = new[] { "role" },
+                }
            };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -66,6 +72,36 @@ namespace IdentityServerService.Infrastructure.Persistence
                     },
                     AllowedCorsOrigins = { "http://localhost:4200" },
                     PostLogoutRedirectUris = { "http://localhost:4200" }
+                },
+                new Client
+                {
+                    ClientId = "mvc-client1",
+                    ClientName = "MVC Client Web Read",
+                    ClientSecrets = { new Secret("ClientSecret1".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedScopes = { "API.read" }
+                },
+                new Client
+                {
+                    ClientId = "mvc-client2",
+                    ClientName = "MVC Client Web Crud",
+                    ClientSecrets = { new Secret("ClientSecret1".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedScopes = { "API.write", StandardScopes.OpenId, StandardScopes.Profile }
+                },
+                new Client
+                {
+                    ClientId = "mvc-client3",
+                    ClientName = "MVC Client Web Crud",
+                    ClientSecrets = { new Secret("ClientSecret1".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    AllowedScopes = { "API.read", StandardScopes.OpenId, StandardScopes.Profile, StandardScopes.OfflineAccess, "Roles" },
+                    RedirectUris = new List<string> { "https://localhost:5003/signin-oidc","https://localhost:44355/signin-oidc"},
+                    PostLogoutRedirectUris = new List<string> { "https://localhost:44355/signout-callback-oidc" },
+                    RequirePkce = false,
+                    AllowOfflineAccess = true,
+                    RefreshTokenUsage = TokenUsage.ReUse,
+
                 }
             };
     }

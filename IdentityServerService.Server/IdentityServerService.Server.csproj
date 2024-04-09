@@ -18,4 +18,8 @@
     <ProjectReference Include="..\IdentityServerService.Shared\IdentityServerService.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\login-form-17\images\" />
+  </ItemGroup>
+
 </Project>

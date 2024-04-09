@@ -1,0 +1,5 @@
+Identity Auth Server => https://localhost:5445
+
+API => https://localhost:5001
+
+Client => https://localhost:5003

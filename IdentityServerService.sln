@@ -10,10 +10,17 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerService.Infrastructure", "IdentityServerService.Infrastructure\IdentityServerService.Infrastructure.csproj", "{056E7204-422F-4965-BF9A-B30019674D9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{03562488-2C4D-4B57-8F7B-04B33FD333D8}"
+	ProjectSection(SolutionItems) = preProject
+		Ports.txt = Ports.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerService.Application", "Core\IdentityServerService.Core\IdentityServerService.Application.csproj", "{6346B984-3D52-4C69-AC54-5B75A78389FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerService.Shared", "IdentityServerService.Shared\IdentityServerService.Shared.csproj", "{A635FE08-9F1F-491E-B6DE-EF77E65E4F23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerService.Shared", "IdentityServerService.Shared\IdentityServerService.Shared.csproj", "{A635FE08-9F1F-491E-B6DE-EF77E65E4F23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerService.Client", "IdentityServerService.Client\IdentityServerService.Client.csproj", "{D5E5166E-24D3-4137-9165-765346AA1532}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerService.API", "IdentityServerService.API\IdentityServerService.API.csproj", "{03BDBCFF-30FE-45C4-9EF7-253E04B56B74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +44,14 @@ Global
 		{A635FE08-9F1F-491E-B6DE-EF77E65E4F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A635FE08-9F1F-491E-B6DE-EF77E65E4F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A635FE08-9F1F-491E-B6DE-EF77E65E4F23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5E5166E-24D3-4137-9165-765346AA1532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5E5166E-24D3-4137-9165-765346AA1532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5E5166E-24D3-4137-9165-765346AA1532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5E5166E-24D3-4137-9165-765346AA1532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03BDBCFF-30FE-45C4-9EF7-253E04B56B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BDBCFF-30FE-45C4-9EF7-253E04B56B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BDBCFF-30FE-45C4-9EF7-253E04B56B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BDBCFF-30FE-45C4-9EF7-253E04B56B74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

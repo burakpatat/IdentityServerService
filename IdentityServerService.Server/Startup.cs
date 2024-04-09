@@ -43,11 +43,6 @@ namespace IdentityServerService
             //    .AddInMemoryIdentityResources(IdentityConfig.IdentityResources)
             //    .AddDeveloperSigningCredential();
 
-            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
-              .WithOrigins("http://localhost:4200")
-                .AllowAnyHeader()
-                .AllowAnyMethod()));
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -83,7 +78,7 @@ namespace IdentityServerService
             app.UseRouting();
             app.UseStaticFiles();
 
-            app.UseCors("AllowAll");
+
             app.UseIdentityServer();
             app.UseAuthorization();
 
